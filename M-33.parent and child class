@@ -1,0 +1,25 @@
+class Parent {
+    public void printMessage() {
+        System.out.println("This is parent class");
+    }
+}
+
+class Child extends Parent {
+    public void printMessage() {
+        System.out.println("This is child class");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Parent parentObj = new Parent();
+        Child childObj = new Child();
+        
+        parentObj.printMessage();
+        
+        childObj.printMessage();
+        
+        childObj.printMessage();
+    }
+}

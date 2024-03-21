@@ -1,0 +1,29 @@
+class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+            return instance;
+        } else {
+            throw new RuntimeException("Only one instance of Singleton allowed");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Singleton obj1 = Singleton.getInstance();
+            System.out.println("First object created");
+
+            Singleton obj2 = Singleton.getInstance(); // This line will throw an exception
+            System.out.println("Second object created");
+        } catch (RuntimeException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}

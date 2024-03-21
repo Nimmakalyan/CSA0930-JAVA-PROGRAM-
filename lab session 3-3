@@ -1,0 +1,43 @@
+@@ -0,0 +1,42 @@
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
+public class NumberFormatExceptionDemo {
+    public static void main(String[] args) {
+        // Parsing a Non-Numeric String
+        try {
+            String nonNumericString = "Hello";
+            int numericValue = Integer.parseInt(nonNumericString); // Attempting to parse a non-numeric string
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: Parsing a Non-Numeric String");
+        }
+
+        // Reading User Input Without Validation
+        try {
+            String userInput = "123abc";
+            int intValue = Integer.parseInt(userInput); // Attempting to parse user input without validation
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: Reading User Input Without Validation");
+        }
+
+        // Formatting Issues in “Decimal Format”
+        try {
+            double value = 123.4567;
+            DecimalFormat decimalFormat = new DecimalFormat("###.##"); // Attempting to format incorrectly
+            String formattedValue = decimalFormat.format(value);
+            double parsedValue = (Double) NumberFormat.getInstance().parse(formattedValue); // Parsing the formatted value
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: Formatting Issues in “Decimal Format”");
+        } catch (Exception e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+        }
+
+        // Incorrectly using localized decimal separators
+        try {
+            String localizedValue = "123,456.789"; // Incorrectly using localized decimal separators
+            double parsedValue = Double.parseDouble(localizedValue);
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException: Incorrectly using localized decimal separators");
+        }
+    }
+}

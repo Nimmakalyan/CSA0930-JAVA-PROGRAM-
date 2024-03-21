@@ -1,0 +1,46 @@
+@@ -0,0 +1,44 @@
+abstract class AbstractMath {
+
+    abstract int total(int[] numbers);
+    abstract double average(int[] numbers);
+
+    double mean(int[] numbers) {
+        return total(numbers) / (double) numbers.length;
+    }
+
+    int mode(int[] numbers) {
+        return 0; // Placeholder, actual implementation is required
+    }
+
+    double median(int[] numbers) {
+        return 0.0; // Placeholder, actual implementation is required
+    }
+}
+
+class MathOperations extends AbstractMath {
+    @Override
+    int total(int[] numbers) {
+        int sum = 0;
+        for (int num : numbers) {
+            sum += num;
+        }
+        return sum;
+    }
+
+    @Override
+    double average(int[] numbers) {
+        return total(numbers) / (double) numbers.length;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MathOperations mathOps = new MathOperations();
+        int[] numbers = {5, 10, 15, 20, 25};
+
+        System.out.println("Mean: " + mathOps.mean(numbers));
+        System.out.println("Mode: " + mathOps.mode(numbers)); // Actual implementation is required
+        System.out.println("Median: " + mathOps.median(numbers)); // Actual implementation is required
+    }
+}
+

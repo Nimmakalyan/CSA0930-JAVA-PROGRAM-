@@ -1,0 +1,49 @@
+@@ -0,0 +1,48 @@
+interface SumInterface {
+    int sum(int[] numbers);
+}
+
+interface AverageInterface {
+    double average(int[] numbers);
+}
+
+interface PercentageInterface {
+    double percentage(double obtainedMarks, double totalMarks);
+}
+
+class StatisticsCalculator implements SumInterface, AverageInterface, PercentageInterface {
+    @Override
+    public int sum(int[] numbers) {
+        int total = 0;
+        for (int num : numbers) {
+            total += num;
+        }
+        return total;
+    }
+
+    @Override
+    public double average(int[] numbers) {
+        int sum = sum(numbers);
+        return (double) sum / numbers.length;
+    }
+
+    @Override
+    public double percentage(double obtainedMarks, double totalMarks) {
+        return (obtainedMarks / totalMarks) * 100;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        StatisticsCalculator calculator = new StatisticsCalculator();
+        int[] numbers = {85, 90, 95, 80, 75};
+
+        System.out.println("Sum: " + calculator.sum(numbers));
+
+        System.out.println("Average: " + calculator.average(numbers));
+
+        double obtainedMarks = 370;
+        double totalMarks = 500;
+        System.out.println("Percentage: " + calculator.percentage(obtainedMarks, totalMarks) + "%");
+    }
+}

@@ -1,0 +1,28 @@
+@@ -0,0 +1,27 @@
+public class StaticDemo {
+    // Static variable
+    static int staticVariable = 100;
+
+    static {
+        System.out.println("Static block: This will execute first before any other code in the class.");
+    }
+
+    static void staticMethod() {
+        System.out.println("Static method: This method can be called without creating an instance of the class.");
+    }
+
+    static class StaticNestedClass {
+        void display() {
+            System.out.println("Static nested class: This is a static nested class.");
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Static variable: " + staticVariable);
+
+        staticMethod();
+
+        StaticNestedClass nestedClass = new StaticNestedClass();
+        nestedClass.display();
+    }
+}

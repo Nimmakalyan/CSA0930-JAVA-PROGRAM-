@@ -1,0 +1,24 @@
+@@ -0,0 +1,23 @@
+class Box<T> {
+    private T content;
+
+    public void setContent(T content) {
+        this.content = content;
+    }
+
+    public T getContent() {
+        return content;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Box<Integer> intBox = new Box<>();
+        intBox.setContent(10);
+        System.out.println("Integer content: " + intBox.getContent());
+
+        Box<String> strBox = new Box<>();
+        strBox.setContent("Hello, World!");
+        System.out.println("String content: " + strBox.getContent());
+    }
+}

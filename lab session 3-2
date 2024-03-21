@@ -1,0 +1,45 @@
+@@ -0,0 +1,44 @@
+public class ArrayIndexOutOfBoundsExceptionDemo {
+    public static void main(String[] args) {
+        // Accessing an array element outside its bound
+        try {
+            int[] arr1 = {1, 2, 3};
+            int value = arr1[3]; // Attempting to access index 3 which is out of bounds
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException: Accessing an array element outside its bound");
+        }
+
+        // Iterating beyond the array length
+        try {
+            int[] arr2 = {4, 5, 6};
+            for (int i = 0; i <= arr2.length; i++) { // Iterating beyond the length
+                System.out.println(arr2[i]);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException: Iterating beyond the array length");
+        }
+
+        // Nested array and incorrect index
+        try {
+            int[][] arr3 = {{1, 2}, {3, 4}};
+            int value = arr3[1][2]; // Attempting to access non-existing index
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException: Nested array and incorrect index");
+        }
+
+        // Passing incorrect array to the method
+        try {
+            int[] arr4 = {7, 8, 9};
+            printArray(arr4, 4); // Passing incorrect array length
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException: Passing incorrect array to the method");
+        }
+    }
+
+    // Method to print array elements
+    public static void printArray(int[] arr, int length) {
+        for (int i = 0; i <= length; i++) { // Attempting to iterate beyond the length
+            System.out.println(arr[i]);
+        }
+    }
+}

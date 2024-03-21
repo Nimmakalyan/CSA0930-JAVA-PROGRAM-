@@ -1,0 +1,45 @@
+class Student {
+    private String name;
+    private int registerNumber;
+    private int[] subjectMarks = new int[5];
+    
+    public Student(String name, int registerNumber, int[] subjectMarks) {
+        this.name = name;
+        this.registerNumber = registerNumber;
+        for (int i = 0; i < 5; i++) {
+            this.subjectMarks[i] = subjectMarks[i];
+        }
+    }
+    
+    public int calculateTotalMarks() {
+        int total = 0;
+        for (int mark : subjectMarks) {
+            total += mark;
+        }
+        return total;
+    }
+    
+    public double calculateAverageMarks() {
+        int totalMarks = calculateTotalMarks();
+        return (double) totalMarks / 5;
+    }
+    
+    public void displayDetailsAndAverage() {
+        System.out.println("Student Name: " + name);
+        System.out.println("Register Number: " + registerNumber);
+        System.out.println("Subject Marks:");
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Subject " + (i + 1) + ": " + subjectMarks[i]);
+        }
+        System.out.println("Average Marks: " + calculateAverageMarks());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        int[] marks = {80, 75, 90, 85, 95}; // Example marks
+        Student student = new Student("John Doe", 123456, marks);
+        
+        student.displayDetailsAndAverage();
+    }
+}

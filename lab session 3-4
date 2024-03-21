@@ -1,0 +1,78 @@
+
+@@ -0,0 +1,76 @@
+public class IllegalArgumentExceptionDemo {
+    public static void main(String[] args) {
+        // Negative Argument in the method requiring non-negative values
+        try {
+            int radius = -5;
+            calculateArea(radius); // Passing a negative value to a method requiring non-negative values
+        } catch (IllegalArgumentException e) {
+            System.out.println("IllegalArgumentException: Negative Argument in the method requiring non-negative values");
+        }
+
+        // Invalid Enum Constant Passed to a Method
+        try {
+            String direction = "North";
+            validateDirection(Direction.valueOf(direction)); // Passing an invalid enum constant
+        } catch (IllegalArgumentException e) {
+            System.out.println("IllegalArgumentException: Invalid Enum Constant Passed to a Method");
+        }
+
+        // Setting an Invalid Range for a Method Parameter
+        try {
+            int width = 200;
+            int height = 300;
+            Rectangle rectangle = new Rectangle(width, height);
+        } catch (IllegalArgumentException e) {
+            System.out.println("IllegalArgumentException: Setting an Invalid Range for a Method Parameter");
+        }
+
+        // Empty or Null String Argument in a Method Requiring non empty strings
+        try {
+            String name = "";
+            validateName(name); // Passing an empty string to a method requiring non-empty strings
+        } catch (IllegalArgumentException e) {
+            System.out.println("IllegalArgumentException: Empty or Null String Argument in a Method Requiring non empty strings");
+        }
+    }
+
+    // Method requiring non-negative values
+    public static void calculateArea(int radius) {
+        if (radius < 0) {
+            throw new IllegalArgumentException("Radius must be non-negative");
+        }
+        // Calculate area
+    }
+
+    // Method expecting valid direction
+    public static void validateDirection(Direction direction) {
+        // Validation logic for direction
+    }
+
+    // Class representing a direction enum
+    enum Direction {
+        NORTH, SOUTH, EAST, WEST
+    }
+
+    // Method requiring non-empty strings
+    public static void validateName(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty or null");
+        }
+        // Validation logic for name
+    }
+
+    // Class representing a Rectangle
+    static class Rectangle {
+        int width;
+        int height;
+
+        public Rectangle(int width, int height) {
+            if (width <= 0 || height <= 0) {
+                throw new IllegalArgumentException("Width and height must be greater than zero");
+            }
+            this.width = width;
+            this.height = height;
+        }
+    }
+}
